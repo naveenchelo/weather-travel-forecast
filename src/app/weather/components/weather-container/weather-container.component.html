@@ -1,1 +1,48 @@
-<p>weather-container works!</p>
+<div class="weather-container">
+
+    <!-- Header -->
+    <header class="weather-header">
+        <h1 class="weather-title">Weather Travel Forecast</h1>
+        <p class="weather-subtitle">5-Day Weather Forecast for UK Cities</p>
+    </header>
+
+    <!-- City Selector -->
+    <div class="city-selector-wrapper">
+        <app-city-selector [cities]="availableCities" [selectedCity]="selectedCity$ | async"
+            (citySelected)="onCitySelected($event)">
+        </app-city-selector>
+    </div>
+
+    <!-- Loading State -->
+    @if (loading$ | async) {
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <p>Loading forecast data...</p>
+    </div>
+    }
+
+    <!-- Error State -->
+    @if (error$ | async; as error) {
+    <div class="error-container">
+        <div class="error-icon">⚠️</div>
+        <p class="error-message">{{ error }}</p>
+    </div>
+    }
+
+    <!-- Forecast Section -->
+    @if ((hasForecast$ | async) && !(loading$ | async) && !(error$ | async)) {
+    <section class="forecast-section">
+        <h2 class="forecast-heading">5-Day Forecast</h2>
+        <app-forecast-list [forecastDays]="forecastDays$ | async"></app-forecast-list>
+    </section>
+    }
+
+    <!-- No City Selected -->
+    @if (!(selectedCity$ | async) && !(loading$ | async)) {
+    <div class="no-selection-container">
+        <div class="no-selection-icon">🌤️</div>
+        <p class="no-selection-message">Please select a city to view the forecast</p>
+    </div>
+    }
+
+</div>

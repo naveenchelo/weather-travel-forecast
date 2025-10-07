@@ -1,1 +1,24 @@
-<p>forecast-day-card works!</p>
+<div class="forecast-card" *ngIf="forecastDay">
+    <!-- Date Header -->
+    <div class="forecast-card-header">
+        <h3 class="day-name">{{ getDayOfWeek() }}</h3>
+        <p class="date">{{ getFormattedDate() }}</p>
+    </div>
+
+    <!-- Weather Details -->
+    <div class="forecast-card-body">
+        <div class="weather-detail temperature">
+            <span class="detail-icon">🌡️</span>
+            <span class="detail-value">{{ forecastDay.temperatureCelsius }}°C</span>
+        </div>
+
+        <div class="weather-detail wind">
+            <span class="detail-icon">💨</span>
+            <span class="detail-value">{{ forecastDay.windSpeed }} m/s</span>
+        </div>
+
+        <div class="weather-detail description">
+            <p class="description-text">{{ forecastDay.weatherDescription }}</p>
+        </div>
+    </div>
+</div>

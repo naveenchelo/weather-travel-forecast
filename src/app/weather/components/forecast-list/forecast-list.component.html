@@ -1,1 +1,23 @@
-<p>forecast-list works!</p>
+<div class="forecast-list">
+
+    <!-- Check if forecast data exists -->
+    @if (forecastDays!.length > 0) {
+
+    <!-- Forecast Grid -->
+    <div class="forecast-grid">
+        @for (day of forecastDays; track day.date) {
+        <app-forecast-day-card [forecastDay]="day">
+        </app-forecast-day-card>
+        }
+    </div>
+
+    } @else {
+
+    <!-- No Data Message -->
+    <div class="no-data-message">
+        <p>No forecast data available</p>
+    </div>
+
+    }
+
+</div>

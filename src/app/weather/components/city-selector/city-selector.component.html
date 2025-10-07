@@ -1,1 +1,24 @@
-<p>city-selector works!</p>
+<div class="city-selector">
+    <label for="city-select" class="city-selector-label">
+        Select a City:
+    </label>
+
+    <select id="city-select" class="city-selector-dropdown" [value]="selectedCity || ''"
+        (change)="onCityChange($event)">
+
+        <option value="">-- Choose a city --</option>
+
+        @if (cities.length > 0) {
+
+        @for (city of cities; track city) {
+        <option [value]="city">
+            {{ city }}
+        </option>
+        }
+        }
+        @else {
+        <option disabled>No cities available</option>
+        }
+
+    </select>
+</div>

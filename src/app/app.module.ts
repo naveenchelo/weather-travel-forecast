@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { weatherReducer } from './weather/store/reducers/weather.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ weather: weatherReducer }),
     EffectsModule.forRoot([]),
   ],
   providers: [],

@@ -5,6 +5,10 @@
         <p class="date">{{ getFormattedDate() }}</p>
     </div>
 
+    <div class="forecast-card-icon">
+        <img [src]="forecastDay.weatherIcon" [alt]="forecastDay.weatherDescription" class="weather-icon">
+    </div>
+
     <!-- Weather Details -->
     <div class="forecast-card-body">
         <div class="weather-detail temperature">

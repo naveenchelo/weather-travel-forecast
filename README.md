@@ -1,27 +1,57 @@
 # WeatherTravelForecast
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+Travel packing helper for UK travelers — get personalized packing lists based on destination weather.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This Angular app helps travelers in the UK plan their packing by showing a 5-day weather forecast for major cities. Powered by [OpenWeatherMap](https://openweathermap.org), users can get the forecast for Birmingham, London, and Cardiff, helping them decide what clothes to bring.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Select UK City:** Choose Birmingham, London, or Cardiff to view forecasts.
+- **No City Selected:** Prompts you to select a city; no forecast is shown.
+- **5-Day Forecast:** See daily temperature (°C), windspeed, weather description, and an icon.
+- **Easy City Switching:** Changing the city updates the forecast immediately.
+- **Live Weather Data:** Integrated with OpenWeatherMap’s 5-day forecast API.
 
-## Build
+## How It Works
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Choose a City:** Use the dropdown to select your destination.
+2. **View Forecast:** The next 5 days’ weather is displayed with all key details.
+3. **Change City:** Select another city to see its forecast.
 
-## Running unit tests
+## Technologies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular (TypeScript)
+- OpenWeatherMap API
+- SCSS
 
-## Running end-to-end tests
+## Development
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run the app locally:
 
-## Further help
+```bash
+npm install
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Visit [http://localhost:4200](http://localhost:4200).
+
+## API Configuration
+
+Set your OpenWeatherMap API key in the environment file:
+
+```typescript
+environment.weatherApi = {
+  apiKey: "YOUR_API_KEY",
+  baseUrl: "https://api.openweathermap.org/data/2.5",
+  iconBaseUrl: "https://openweathermap.org/img/wn",
+};
+```
+
+## Project Structure
+
+- `src/app/weather/models/forecast.model.ts` — Data models
+- `src/app/weather/components/` — UI components
+- `src/app/weather/services/weather-api.service.ts` — API integration
+- `src/app/weather/sandbox/weather-sandbox.ts` — State and business logic

@@ -6,18 +6,23 @@ import { WeatherContainerComponent } from './components/weather-container/weathe
 import { CitySelectorComponent } from './components/city-selector/city-selector.component';
 import { ForecastListComponent } from './components/forecast-list/forecast-list.component';
 import { ForecastDayCardComponent } from './components/forecast-day-card/forecast-day-card.component';
-
+import { Store, StoreModule } from '@ngrx/store';
+import { weatherReducer } from './store/reducers/weather.reducer';
+import { WeatherEffects } from './store/effects/weather.effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
     WeatherContainerComponent,
     CitySelectorComponent,
     ForecastListComponent,
-    ForecastDayCardComponent
+    ForecastDayCardComponent,
   ],
   imports: [
     CommonModule,
-    WeatherRoutingModule
-  ]
+    WeatherRoutingModule,
+    StoreModule.forFeature('weatherFeatureKey', weatherReducer),
+    EffectsModule.forFeature([WeatherEffects]),
+  ],
 })
-export class WeatherModule { }
+export class WeatherModule {}

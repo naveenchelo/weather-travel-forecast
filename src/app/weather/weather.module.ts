@@ -21,7 +21,7 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     CommonModule,
     WeatherRoutingModule,
-    StoreModule.forFeature('weatherFeatureKey', weatherReducer),
+    StoreModule.forFeature('weather', weatherReducer),
     EffectsModule.forFeature([WeatherEffects]),
   ],
 })

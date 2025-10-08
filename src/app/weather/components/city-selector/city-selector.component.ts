@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { City, SelectedCity } from '../../models/forecast.model';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-city-selector',
@@ -13,14 +14,8 @@ export class CitySelectorComponent {
 
   @Output() citySelected = new EventEmitter<City | null>();
 
-  onCityChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    const selectedValue = selectElement.value;
-
-    if (selectedValue) {
-      this.citySelected.emit(selectedValue as City);
-    } else {
-      this.citySelected.emit(null);
-    }
+  onCityChange(event: MatSelectChange): void {
+    const selectedValue = event.value;
+    this.citySelected.emit(selectedValue || null);
   }
 }

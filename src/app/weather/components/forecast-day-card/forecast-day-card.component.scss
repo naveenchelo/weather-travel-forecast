@@ -1,110 +1,47 @@
 .forecast-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e9ecef;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-}
-
-.forecast-card-header {
-  text-align: center;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #e9ecef;
-  padding-bottom: 0.75rem;
-}
-
-.day-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0 0 0.25rem 0;
-}
-
-.date {
-  font-size: 0.9rem;
-  color: #7f8c8d;
-  margin: 0;
-}
-
-.forecast-card-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-.weather-icon {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
-
-.forecast-card-body {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-}
 
-.weather-detail {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-
-  &.temperature {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
-  }
-
-  &.wind {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  }
-
-  &.description {
+  mat-card-header {
+    text-align: center;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-  }
-}
-
-.detail-icon {
-  font-size: 1.5rem;
-}
-
-.detail-value {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-.description-text {
-  font-size: 1rem;
-  color: #34495e;
-  margin: 0;
-  text-align: center;
-  width: 100%;
-  text-transform: capitalize;
-}
-
-// Responsive design
-@media (max-width: 768px) {
-  .forecast-card {
-    padding: 1rem;
+    align-items: center;
   }
 
-  .weather-icon {
-    width: 80px;
-    height: 80px;
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    align-self: center;
   }
 
-  .day-name {
-    font-size: 1.1rem;
+  .weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .weather-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .weather-description {
+    text-align: center;
+    margin-top: 0.5rem;
+
+    p {
+      margin: 0;
+      text-transform: capitalize;
+    }
   }
 }

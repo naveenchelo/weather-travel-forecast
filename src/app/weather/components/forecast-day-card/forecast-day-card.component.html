@@ -1,28 +1,30 @@
-<div class="forecast-card" *ngIf="forecastDay">
-    <!-- Date Header -->
-    <div class="forecast-card-header">
-        <h3 class="day-name">{{ getDayOfWeek() }}</h3>
-        <p class="date">{{ getFormattedDate() }}</p>
-    </div>
+@if (forecastDay) {
+<mat-card class="forecast-card">
+    <mat-card-header>
+        <mat-card-title>{{ getDayOfWeek() }}</mat-card-title>
+        <mat-card-subtitle>{{ getFormattedDate() }}</mat-card-subtitle>
+    </mat-card-header>
 
-    <div class="forecast-card-icon">
-        <img [src]="forecastDay.weatherIcon" [alt]="forecastDay.weatherDescription" class="weather-icon">
-    </div>
+    <img mat-card-image [src]="forecastDay.weatherIcon" [alt]="forecastDay.weatherDescription">
 
-    <!-- Weather Details -->
-    <div class="forecast-card-body">
-        <div class="weather-detail temperature">
-            <span class="detail-icon">🌡️</span>
-            <span class="detail-value">{{ forecastDay.temperatureCelsius }}°C</span>
+    <mat-card-content>
+        <div class="weather-details">
+            <div class="weather-detail">
+                <mat-icon>thermostat</mat-icon>
+                <span>{{ forecastDay.temperatureCelsius }}°C</span>
+            </div>
+
+            <div class="weather-detail">
+                <mat-icon>air</mat-icon>
+                <span>{{ forecastDay.windSpeed }} m/s</span>
+            </div>
+
+            <div class="weather-description">
+                <p>{{ forecastDay.weatherDescription }}</p>
+            </div>
         </div>
-
-        <div class="weather-detail wind">
-            <span class="detail-icon">💨</span>
-            <span class="detail-value">{{ forecastDay.windSpeed }} m/s</span>
-        </div>
-
-        <div class="weather-detail description">
-            <p class="description-text">{{ forecastDay.weatherDescription }}</p>
-        </div>
-    </div>
-</div>
+    </mat-card-content>
+</mat-card>
+} @else {
+<p class="no-data">No forecast available</p>
+}

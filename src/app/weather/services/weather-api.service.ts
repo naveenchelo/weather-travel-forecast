@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environmnet';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { CityForecast, ForeCastDay } from '../models/forecast.model';
+import { environment } from '../../../environments/environment';
 
 interface OpenWeatherResponse {
   city: {
